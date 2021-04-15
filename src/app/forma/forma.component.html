@@ -1,0 +1,369 @@
+<form action="" [formGroup]="glavnaForma" (ngSubmit)="onSubmit()">
+    <div class="container">
+        
+        <div class="form-group">
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <label for="nazivTvrtke">Naziv Tvrtke</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.nazivTvrtke.errors && glavnaForma.controls.nazivTvrtke.touched}"
+                        formControlName="nazivTvrtke" id="nazivTvrtke" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.nazivTvrtke.errors && glavnaForma.controls.nazivTvrtke.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.nazivTvrtke.errors?.required">
+                            Morate unijeti naziv tvrtke!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <label for="adresa">Adresa</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.adresa.errors && glavnaForma.controls.adresa.touched}"
+                        formControlName="adresa" id="adresa" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.adresa.invalid && glavnaForma.controls.adresa.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.adresa.errors?.required">
+                            Morate unijeti adresu!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <label for="maticniBroj">Maticni Broj</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.maticniBroj.errors && glavnaForma.controls.maticniBroj.touched}"
+                        formControlName="maticniBroj" id="maticniBroj" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.maticniBroj.invalid && glavnaForma.controls.maticniBroj.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.maticniBroj.errors?.required">
+                            Morate unijeti maticni broj!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.maticniBroj.errors?.pattern">
+                            Maticni broj mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <label for="OIB">OIB</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.OIB.errors && glavnaForma.controls.OIB.touched}"
+                        formControlName="OIB" id="OIB" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.OIB.invalid && glavnaForma.controls.OIB.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.OIB.errors?.required">
+                            Morate unijeti OIB!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.maticniBroj.errors?.pattern">
+                            OIB mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <label for="telefon">Telefon</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.telefon.errors && glavnaForma.controls.telefon.touched}"
+                        formControlName="telefon" id="telefon" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.telefon.invalid && glavnaForma.controls.telefon.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.telefon.errors?.required">
+                            Morate unijeti telefonski broj!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.telefon.errors?.pattern">
+                            Telefonski broj mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row justify-content-start">
+                <p>Kupac:</p>
+            </div>
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="nazivTvrtkeKlijenta">Naziv Tvrtke Klijenta</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.nazivTvrtkeKlijenta.errors && glavnaForma.controls.nazivTvrtkeKlijenta.touched}"
+                        formControlName="nazivTvrtkeKlijenta" id="nazivTvrtkeKlijenta" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.nazivTvrtkeKlijenta.invalid && glavnaForma.controls.nazivTvrtkeKlijenta.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.nazivTvrtkeKlijenta.errors?.required">
+                            Morate unijeti naziv tvrtke klijenta!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="datumRacuna">Datum Racuna</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.datumRacuna.errors && glavnaForma.controls.datumRacuna.touched}"
+                        id="datumRacuna" type="date" value="{{danas()}}" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="adresaTvrtkeKlijenta">Adresa Tvrtke Klijenta</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.adresaTvrtkeKlijenta.errors && glavnaForma.controls.adresaTvrtkeKlijenta.touched}"
+                        formControlName="adresaTvrtkeKlijenta" id="adresaTvrtkeKlijenta" type="text"
+                        class="form-control">
+                    <div *ngIf="glavnaForma.controls.adresaTvrtkeKlijenta.invalid && glavnaForma.controls.adresaTvrtkeKlijenta.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.adresaTvrtkeKlijenta.errors?.required">
+                            Morate unijeti adresu tvrtke klijenta!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="rokPlacanja">Rok Placanja Racuna</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.rokPlacanja.errors && glavnaForma.controls.rokPlacanja.touched}"
+                        id="rokPlacanja" type="date" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="maticniBrojKlijenta">Maticni Broj Klijenta</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.maticniBrojKlijenta.errors && glavnaForma.controls.maticniBrojKlijenta.touched}"
+                        formControlName="maticniBrojKlijenta" id="maticniBrojKlijenta" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.maticniBrojKlijenta.invalid && glavnaForma.controls.maticniBrojKlijenta.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.maticniBrojKlijenta.errors?.required">
+                            Morate unijeti maticni broj!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.maticniBrojKlijenta.errors?.pattern">
+                            Maticni broj mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="datumIsporuke">Datum isporuke</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.datumIsporuke.errors && glavnaForma.controls.datumIsporuke.touched}"
+                        id="datumIsporuke" type="date" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="OIBKlijenta">OIB Klijenta</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.OIBKlijenta.errors && glavnaForma.controls.OIBKlijenta.touched}"
+                        formControlName="OIBKlijenta" id="OIBKlijenta" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.OIBKlijenta.invalid && glavnaForma.controls.OIBKlijenta.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.OIBKlijenta.errors?.required">
+                            Morate unijeti OIB!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.OIBKlijenta.errors?.pattern">
+                            OIB mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="modelPoziv">Model / Poziv na broj</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.modelPoziv.errors && glavnaForma.controls.modelPoziv.touched}"
+                        formControlName="modelPoziv" id="modelPoziv" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.modelPoziv.invalid && glavnaForma.controls.modelPoziv.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.modelPoziv.errors?.required">
+                            Morate unijeti broj!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.modelPoziv.errors?.pattern">
+                            Mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row justify-content-center my-5">
+                <h1>Racun br.</h1> <input [ngClass]="{'is-invalid':glavnaForma.controls.brRacuna.errors && glavnaForma.controls.brRacuna.touched}"
+                formControlName="brRacuna" id="brRacuna" type="number" size="2" name="brRacuna">
+            </div>
+            <hr />
+
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Naziv</th>
+                        <th scope="col">Cijena</th>
+                        <th scope="col">Kolicina</th>
+                        <th scope="col">Ukupno</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let proizvod of proizvodi; let i = index;">
+                        <td><input class="form-control" [ngModelOptions]="{standalone: true}" type="text"
+                                name="naziv{{i}}" [(ngModel)]="proizvod.naziv"></td>
+                        <td><input class="form-control" [ngModelOptions]="{standalone: true}" type="number"
+                                name="kolicina{{i}}" [(ngModel)]="proizvod.kolicina"></td>
+                        <td><input class="form-control" [ngModelOptions]="{standalone: true}" type="number"
+                                name="cijena{{i}}" [(ngModel)]="proizvod.cijena"></td>
+                        <td class="align-middle"><strong>{{proizvod.cijena * proizvod.kolicina}}</strong></td>
+                        <td class="align-middle" style="cursor:pointer;" (click)="obrisiProizvod(i)">&#10006;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row justify-content-center">
+                <button (click)="dodajProizvod()" class="btn btn-primary" type="button">Dodaj proizvod</button>
+            </div>
+
+            <hr />
+            <hr />
+
+            <div class="row justify-content-end">
+                <p>Ukupno: {{ukupno()}}KM</p>
+            </div>
+
+            <div class="row justify-content-end">
+                <p>PDV(25.00%): {{pdv()}}KM</p>
+            </div>
+
+            <div class="row justify-content-end">
+                <p>Ukupno za platiti: {{ukupno() + pdv()}}KM</p>
+            </div>
+
+            <div class="row justify-content-start">
+                <div class="col-4">
+                    <label for="operater">Operater / Racun izdao</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.operater.errors && glavnaForma.controls.operater.touched}"
+                        formControlName="operater" id="operater" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.operater.invalid && glavnaForma.controls.operater.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.operater.errors?.required">
+                            Morate unijeti ime operatera!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="col-4">
+                    <p>Nacin placanja: transakcijski racun</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-start">
+                <div class="col-4">
+                    <label for="JIRZKI">JIR I ZKI</label>
+                    <input formControlName="JIRZKI" id="JIRZKI" class="form-control" type="text">
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="clanoviUprave">Clanovi Uprave</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.clanoviUprave.errors && glavnaForma.controls.clanoviUprave.touched}"
+                        formControlName="clanoviUprave" id="clanoviUprave" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.clanoviUprave.invalid && glavnaForma.controls.clanoviUprave.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.clanoviUprave.errors?.required">
+                            Morate unijeti clanove uprave!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="nazivBanke">Naziv Banke</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.nazivBanke.errors && glavnaForma.controls.nazivBanke.touched}"
+                        formControlName="nazivBanke" id="nazivBanke" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.nazivBanke.invalid && glavnaForma.controls.nazivBanke.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.nazivBanke.errors?.required">
+                            Morate unijeti naziv banke!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="temeljniKapital">Temeljni Kapital</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.temeljniKapital.errors && glavnaForma.controls.temeljniKapital.touched}"
+                        formControlName="temeljniKapital" id="temeljniKapital" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.temeljniKapital.invalid && glavnaForma.controls.temeljniKapital.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.temeljniKapital.errors?.required">
+                            Morate unijeti temeljni kapital!!
+                        </div>
+                        <div *ngIf="glavnaForma.controls.temeljniKapital.errors?.pattern">
+                            Temeljni kapital mora sadrzavati samo brojeve!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="IBAN">IBAN</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.IBAN.errors && glavnaForma.controls.IBAN.touched}"
+                        formControlName="IBAN" id="IBAN" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.IBAN.invalid && glavnaForma.controls.IBAN.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.IBAN.errors?.required">
+                            Morate unijeti IBAN!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <label for="sud">Sud</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.sud.errors && glavnaForma.controls.sud.touched}"
+                        formControlName="sud" id="sud" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.sud.invalid && glavnaForma.controls.sud.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.sud.errors?.required">
+                            Morate unijeti ime suda!!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="SWIFTBIC">SWIFT/BIC</label>
+                    <input
+                        [ngClass]="{'is-invalid':glavnaForma.controls.SWIFTBIC.errors && glavnaForma.controls.SWIFTBIC.touched}"
+                        formControlName="SWIFTBIC" id="SWIFTBIC" type="text" class="form-control">
+                    <div *ngIf="glavnaForma.controls.SWIFTBIC.invalid && glavnaForma.controls.SWIFTBIC.touched"
+                        class="invalid-feedback">
+                        <div *ngIf="glavnaForma.controls.SWIFTBIC.errors?.required">
+                            Morate unijeti SWIFT/BIC!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+<hr />
+        <div class="row justify-content-center">
+            <input type="submit" class="btn btn-primary btn-large btn-success" value="Unesi fakturu">
+        </div>
+
+    </div>
+</form>
